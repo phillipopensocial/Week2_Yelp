@@ -22,11 +22,16 @@ class BusinessCell: UITableViewCell {
         didSet{
             gNameLabel.text = business.name
             gAddressLabel.text = business.address
-            gThumbImageView.setImageWith(business.imageURL!)
+            if business.imageURL != nil {
+                gThumbImageView.setImageWith(business.imageURL!)
+            }
             gCategoriesLabel.text = business.categories
             gDistanceLabel.text = business.distance
             gReviewCountLabel.text = "\(business.reviewCount) reviews"
-            gRatingImageView.setImageWith(business.ratingImageURL!)
+            if business.ratingImageURL != nil {
+                gRatingImageView.setImageWith(business.ratingImageURL!)
+            }
+
 
         }
         
