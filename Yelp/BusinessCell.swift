@@ -40,6 +40,18 @@ class BusinessCell: UITableViewCell {
         //Make Image round
         gThumbImageView.layer.cornerRadius = 3
         gThumbImageView.clipsToBounds = true
+        
+        //Wrap text
+        self.gNameLabel.preferredMaxLayoutWidth = self.gNameLabel.frame.size.width
+        self.gCategoriesLabel.preferredMaxLayoutWidth = self.gCategoriesLabel.frame.width
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        //Wrap text
+        self.gNameLabel.preferredMaxLayoutWidth = self.gNameLabel.frame.size.width
+        self.gCategoriesLabel.preferredMaxLayoutWidth = self.gCategoriesLabel.frame.width
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
