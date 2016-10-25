@@ -12,6 +12,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     var businesses: [Business]!
     var searchBar : UISearchBar!
+    var defaultSearchText = "Thai"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -32,7 +33,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
         
         //Setup Search
-        doSearch(searchTerm: "Thai")
+        doSearch(searchTerm: defaultSearchText)
         
         /* Example of Yelp search with more search options specified
          Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
@@ -78,6 +79,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     */
         if searchText.isEmpty == false {
             doSearch(searchTerm: searchText)
+        }else{
+            doSearch(searchTerm: defaultSearchText)
         }
         tableView.reloadData()
     }
